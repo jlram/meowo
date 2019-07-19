@@ -104,7 +104,7 @@ class EditProfile extends React.Component {
           value={this.state.foto}
         />
 
-        <TouchableHighlight style={styles.buttonedit} onPress={() => navigate('Login')}>
+        <TouchableHighlight style={styles.buttonedit} onPress={() => navigate('Cards')}>
           <Text style={styles.buttontextedit}>Editar Perfil</Text>
         </TouchableHighlight>
       </View>
