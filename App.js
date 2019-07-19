@@ -4,11 +4,13 @@ import {createStackNavigator, createAppContainer, } from 'react-navigation';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Main from './components/Main';
+import Cards from './components/Main';
 
 const MainNavigator = createStackNavigator({
   Login: {screen: Login},
   Signup: {screen: Signup},
   Main: {screen: Main},
+  Cards: {screen: Cards},
 });
 
 const App = createAppContainer(MainNavigator);
