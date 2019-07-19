@@ -39,15 +39,15 @@ class Datos extends React.Component {
       <View style={styles.fondo}>
           <Text style={styles.titulo}>Datos de contacto</Text>
           <Text style={styles.texto} onPress={this.llamar}>
-            <Ionicons name={'ios-phone-portrait'} size={25} color={'white'} />{' '}
+            <Ionicons name={'ios-phone-portrait'} size={25} />{' '}
             958452312
           </Text>
           <Text style={styles.texto} onPress={this.email}>
-            <Ionicons name={'ios-at'} size={25} color={'white'} />{' '}
-            info@tienda.com
+            <Ionicons name={'ios-at'} size={25}/>{' '}
+            info@meowo.com
           </Text>
           <Text style={styles.texto}>
-            <Ionicons name={'ios-mail'} size={25} color={'white'} /> Av. Doctor
+            <Ionicons name={'ios-mail'} size={25}/> Av. Doctor
             Oloriz, 11
           </Text>
           <Text style={styles.texto}>18008, Granada</Text>
@@ -276,6 +276,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginTop: 10,
     fontSize: 15,
+    textAlign: 'center'
   },
   titulo: {
     color: 'black',
