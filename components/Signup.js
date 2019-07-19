@@ -69,14 +69,9 @@ export default class App extends React.Component {
           value={this.state.foto}
         />
 
-        <TouchableHighlight style={styles.button} onPress={this.login}>
+        <TouchableHighlight style={styles.button} onPress={() => navigate('Login')}>
           <Text style={styles.buttontext}>Registrarme</Text>
         </TouchableHighlight>
-
-        <Text>
-          Aún no tienes cuenta?{' '}
-          <Text style={{ color: 'blue', fontWeight: 'bold' }}>Regístrate</Text>
-        </Text>
       </View>
     );
   }
