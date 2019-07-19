@@ -11,6 +11,8 @@ import {
   WebView,
   Image,
   TouchableOpacity,
+  TextInput,
+  TouchableHighlight
 } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -57,26 +59,54 @@ class Datos extends React.Component {
 
 //DECLARACION DEL MAPA Y DEL MARCADOR
 class EditProfile extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { text: '', data: [], pwd: '', pwd2: '', foto:'' };
+  }
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <MapView
-          style={styles.map}
-          region={{
-            latitude: 37.187305,
-            longitude: -3.607884,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-          }}>
-          <MapView.Marker
-            coordinate={{
-              latitude: 37.187305,
-              longitude: -3.607884,
-            }}
-            title={'EAG'}
-            description={'¡Aquí estamos!'}
-          />
-        </MapView>
+      <View style={styles.containeredit}>
+        <Image
+          source={require('../assets/meowo.png')}
+          style={{ width: 100, height: 100, marginBottom: 30 }}
+        />
+        <TextInput
+          placeholder="Usuario"
+          style={styles.textInputedit}
+          underlineColorAndroid="black"
+          onChangeText={text => this.setState({ text })}
+          value={this.state.text}
+        />
+        <TextInput
+          placeholder="Contraseña"
+          style={styles.textInputedit}
+          underlineColorAndroid="black"
+          secureTextEntry={true}
+          onChangeText={pwd => this.setState({ pwd })}
+          value={this.state.pwd}
+        />
+        <TextInput
+          placeholder="Repite tu contraseña"
+          style={styles.textInputedit}
+          underlineColorAndroid="black"
+          secureTextEntry={true}
+          onChangeText={pwd2 => this.setState({ pwd2 })}
+          value={this.state.pwd2}
+        />
+        <TextInput
+          placeholder="url de tu foto"
+          style={styles.textInputedit}
+          underlineColorAndroid="black"
+          onChangeText={foto => this.setState({ foto })}
+          value={this.state.foto}
+        />
+
+        <TouchableHighlight style={styles.buttonedit} onPress={() => navigate('Login')}>
+          <Text style={styles.buttontextedit}>Editar Perfil</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -210,21 +240,32 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    justifyContent: 'flex-end',
+  containeredit: {
+    flex: 1,
     alignItems: 'center',
+    marginTop: 30,
+    textAlign: 'left',
   },
-  map: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+  buttonedit: {
+    backgroundColor: '#0D1E1D',
+    borderColor: 'white',
+    borderWidth: 1,
+    color: 'white',
+    overflow: 'hidden',
+    paddingVertical: 12,
+    paddingHorizontal: 50,
+    textAlign: 'center',
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  textInputedit: {
+    height: 60,
+    width: 200,
+    fontSize: 16
+  },
+  buttontextedit: {
+    color:'white',
+    fontSize: 18,
   },
   fondo: {
     width: '100%',
